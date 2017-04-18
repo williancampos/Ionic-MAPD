@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Mobile Applications Development - Centennial College</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+   <ion-list>
+    <button ion-item *ngFor="let course of courses | async">
+      <div (click)="showOptions(course.$key);">{{course.code}} - {{course.name}}</div>
+      <ion-badge item-right (click)="showComments(course.$key, course.comments);">{{course.comments == null ? 0 : course.comments.length}}</ion-badge>
+    </button>
+  </ion-list>
+
+
+  <button ion-button (click)="addCourse();"><ion-icon name="add"></ion-icon></button>
+</ion-content>
