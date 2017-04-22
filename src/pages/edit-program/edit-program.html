@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mobile Applications Development - Centennial College
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label stacked>Description</ion-label>
+            <ion-textarea [(ngModel)]="program.description"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Deadline</ion-label>
+            <ion-input type="text" [(ngModel)]="program.deadline"></ion-input>
+        </ion-item>
+    </ion-list>
+    <br>
+    <h5>Requirements</h5>
+    <button ion-button full (click)="addRequirement()">
+        Add requirement
+    </button>
+
+    <ion-row *ngFor="let requirement of program.requirements; let i = index">
+        <ion-col col-1>
+            <button ion-button clear icon-only (click)="removeRequirement(i)">
+                <ion-icon name="remove"></ion-icon>
+            </button>
+        </ion-col>
+        <ion-col col-11>
+            <ion-input [(ngModel)]="requirement.data" placeholder="Enter requirement..."></ion-input>
+        </ion-col>
+    </ion-row>
+
+    <button ion-button full color="danger" (click)="cancel()">Cancel</button>
+    <button ion-button full color="secondary" (click)="save()">Save</button>
+    
+  
+</ion-content>

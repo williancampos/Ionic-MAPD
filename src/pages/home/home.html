@@ -1,17 +1,32 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Mobile Applications Development - Centennial College</ion-title>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>
+      Mobile Applications Development - Centennial College
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button clear icon-only item-right (click)="editProgram(program);">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
-   <ion-list>
-    <button ion-item *ngFor="let course of courses | async">
-      <div (click)="showOptions(course.$key);">{{course.code}} - {{course.name}}</div>
-      <ion-badge item-right (click)="showComments(course.$key, course.comments);">{{course.comments == null ? 0 : course.comments.length}}</ion-badge>
-    </button>
+  <div>
+    <h2>Description</h2>
+    <ion-item text-wrap>{{program?.description}}</ion-item>
+  </div>
+
+  <div>
+    <h2>Deadline to apply</h2>
+    <ion-item text-wrap>{{program?.deadline}}</ion-item>
+  </div>
+  
+  <h2>Requirements</h2>
+  <ion-list>
+    <ion-item *ngFor="let requirement of program?.requirements" text-wrap>{{requirement.data}}</ion-item>
   </ion-list>
-
-
-  <button ion-button (click)="addCourse();"><ion-icon name="add"></ion-icon></button>
+  
 </ion-content>

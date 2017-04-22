@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Professors</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getProfessors($event)"></ion-searchbar>
+  <ion-card *ngFor="let professor of professors | sortByName">
+    <ion-card-header>
+      <ion-card-title>
+        {{professor.name}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let course of professor.courses">{{course.code}}</ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

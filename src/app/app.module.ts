@@ -7,7 +7,12 @@ import { AngularFireModule } from 'angularfire2';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ViewCommentsPage } from '../pages/comment/view-comments';
+import { EditProgramPage } from '../pages/edit-program/edit-program';
+import { ListCourses } from '../pages/courses/list-courses'
+import { CourseDetails } from '../pages/courses/course-details';
+import { ListProfessors } from '../pages/professors/list-professors';
+import { Menu } from '../pages/menu/menu';
+import { ProfessorSortPipe } from '../pages/professors/professor-sort-pipe';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA-W5K3qSlsWzd83CRKK-kUoWCLjquKAV4",
@@ -22,7 +27,12 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    ViewCommentsPage
+    EditProgramPage,
+    ListCourses,
+    CourseDetails,
+    ListProfessors,
+    Menu,
+    ProfessorSortPipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +43,11 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    ViewCommentsPage
+    EditProgramPage,
+    ListCourses,
+    CourseDetails,
+    ListProfessors,
+    Menu
   ],
   providers: [
     StatusBar,

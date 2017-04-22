@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Course Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h1>{{course.name}}</h1>
+  <br>
+  <ion-row>
+    <ion-col><h2>Code</h2></ion-col>
+    <ion-col><h2>Term</h2></ion-col>
+    <ion-col><h2>Hours per week</h2></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>{{course.code}}</ion-col>
+    <ion-col>{{course.term}}</ion-col>
+    <ion-col>{{course.hoursPerWeek}}</ion-col>
+  </ion-row>
+  <br>
+
+   <h2>Description</h2>
+   <p>{{course.description}}</p>
+
+   <br>
+   <h2>Comments</h2>
+   <div *ngIf="course.comments.length==0" text-center><i>No comments yet! Be the first one to comment!</i></div>
+   <ion-list *ngIf="course.comments.length > 0">
+    <ion-item *ngFor="let comment of course.comments.sort(sortCommentsFunction)">
+      {{comment.data}}
+      <p text-right><i>{{showDate(comment.timestamp) | date: 'dd/MM/yyyy HH:mm'}}</i></p>
+    </ion-item>
+  </ion-list>
+  <br>
+  <button ion-button full (click)="addComment();">Add Comment</button>
+</ion-content>
